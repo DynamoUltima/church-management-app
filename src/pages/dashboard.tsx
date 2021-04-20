@@ -1,10 +1,11 @@
 
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, Container,} from '@material-ui/core';
+import { makeStyles, Container, } from '@material-ui/core';
 import { format } from 'date-fns';
 import GridContainer from '../components/Grid/GridContainer';
 import GridItem from '../components/Grid/GridItem';
-import  { FirstTimerCard,AttendanceCard,ConsistentFirstTimersCard } from '../components/Cards/Card';
+import { FirstTimerCard, AttendanceCard, ConsistentFirstTimersCard, NotificationCard } from '../components/Cards/Card';
+import { AttendanceGraph } from '../components/Graphs/Graph';
 
 
 
@@ -88,10 +89,19 @@ const Dashboard: React.FC<DashboardProps> = () => {
             <ConsistentFirstTimersCard />
           </GridItem>
         </GridContainer>
+        <GridContainer>
+          <GridItem xs={12} sm={12} md={6}>
+            <AttendanceGraph />
+          </GridItem>
+          <GridItem xs={12} sm={12} md={6}>
+            <NotificationCard />
+          </GridItem>
+
+        </GridContainer>
 
       </div>
 
- 
+
 
 
 

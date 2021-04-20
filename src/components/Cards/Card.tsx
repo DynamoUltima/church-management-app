@@ -1,13 +1,14 @@
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import { Assignment } from '@material-ui/icons';
+import { Assignment, People, Person } from '@material-ui/icons';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import { makeStyles, Avatar, IconButton, Menu, MenuItem, } from '@material-ui/core';
+import { makeStyles, Avatar, IconButton, Menu, MenuItem, Divider, List, ListItem, ListItemText, } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { blue, green, yellow } from '@material-ui/core/colors';
 import { useState } from 'react';
 import { grayColor, whiteColor } from '../color';
+
 
 const useStyles = makeStyles((theme) => {
 
@@ -87,15 +88,7 @@ const useStyles = makeStyles((theme) => {
 })
 
 
-// export interface CardsProps {
 
-// }
-
-// const Cards: React.SFC<CardsProps> = () => {
-//     return ( <div></div> );
-// }
-
-// export default Cards;
 
 const options = [
     'None',
@@ -130,7 +123,7 @@ const FirstTimerCard: React.FC<FirstTimerCardProps> = () => {
                 <CardHeader
                     // className={classes.cardTitle}
                     avatar={
-                        <Avatar className={classes.large}><Assignment fontSize="large" /></Avatar>
+                        <Avatar className={classes.large}><Person fontSize="large" /></Avatar>
                     }
 
                     action={
@@ -172,9 +165,9 @@ const FirstTimerCard: React.FC<FirstTimerCardProps> = () => {
                     }
                 />
                 <CardContent>
-                    <Typography className={classes.cardCategory} 
-                    // variant='h6' 
-                    color={'secondary'}>
+                    <Typography className={classes.cardCategory}
+                        // variant='h6' 
+                        color={'secondary'}>
                         300 first timers
                     </Typography>
                 </CardContent>
@@ -211,7 +204,7 @@ const AttendanceCard: React.FC<AttendanceCardProps> = () => {
             <CardHeader
                 // className={classes.header}
                 avatar={
-                    <Avatar className={classes.attendanceLarge}><Assignment fontSize="large"  /></Avatar>
+                    <Avatar className={classes.attendanceLarge}><Assignment fontSize="large" /></Avatar>
                 }
 
                 action={
@@ -253,11 +246,11 @@ const AttendanceCard: React.FC<AttendanceCardProps> = () => {
                 }
             />
             <CardContent>
-                <Typography 
-                variant='body2'
-                 color={'textSecondary'}
-                 className={classes.cardCategory}
-                 >
+                <Typography
+                    variant='body2'
+                    color={'textSecondary'}
+                    className={classes.cardCategory}
+                >
                     300 first tmers
                 </Typography>
             </CardContent>
@@ -290,7 +283,7 @@ const ConsistentFirstTimersCard: React.FC<ConsistentFirstTimersCardProps> = () =
             <CardHeader
                 // className={classes.header}
                 avatar={
-                    <Avatar className={classes.consistentLarge}><Assignment fontSize="large"  /></Avatar>
+                    <Avatar className={classes.consistentLarge}><People fontSize="large" /></Avatar>
                 }
 
                 action={
@@ -301,7 +294,7 @@ const ConsistentFirstTimersCard: React.FC<ConsistentFirstTimersCardProps> = () =
                             aria-haspopup="true"
                             onClick={handleClick}
                         >
-                            <MoreVertIcon color='secondary'/>
+                            <MoreVertIcon color='secondary' />
                         </IconButton>
                         <Menu
                             id="long-menu"
@@ -327,16 +320,16 @@ const ConsistentFirstTimersCard: React.FC<ConsistentFirstTimersCardProps> = () =
 
                 title={
                     <Typography className={classes.cardTitle}>
-                      Active Members
+                        Active Members
                 </Typography>
                 }
             />
             <CardContent>
-            <Typography 
-                variant='body2'
-                 color={'textSecondary'}
-                 className={classes.cardCategory}
-                 >
+                <Typography
+                    variant='body2'
+                    color={'textSecondary'}
+                    className={classes.cardCategory}
+                >
                     300 first tmers
                 </Typography>
             </CardContent>
@@ -345,6 +338,45 @@ const ConsistentFirstTimersCard: React.FC<ConsistentFirstTimersCardProps> = () =
     </div>);
 }
 
+export interface NotificationCardProps {
+
+}
+
+const NotificationCard: React.FC<NotificationCardProps> = () => {
+    return (
+        <>
+        <Card>
+            <CardHeader 
+            title="Notifications"
+
+            subheader="General"
+            
+            />
+            <Divider  />
+            <CardContent> 
+                <List>
+                    <ListItem>
+                        <ListItemText primary="Good News" />
+                    </ListItem>
+                    <Divider/>
+                    <ListItem>
+                        <ListItemText primary="First Timers data sent" />
+                    </ListItem>
+                    <Divider/>
+                    <ListItem>
+                        <ListItemText primary="leaders meeting will be starting soon hhhhhhhhhhhhhhhhhhhhhhhhhhhhh" />
+                    </ListItem>
+                </List>
+
+            </CardContent>      
+        </Card>
+
+        </>
+    );
+}
+
+
+
 
 
 
@@ -352,5 +384,6 @@ const ConsistentFirstTimersCard: React.FC<ConsistentFirstTimersCardProps> = () =
 export {
     FirstTimerCard,
     AttendanceCard,
-    ConsistentFirstTimersCard
+    ConsistentFirstTimersCard,
+    NotificationCard
 }
