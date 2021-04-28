@@ -10,7 +10,7 @@ export interface LayoutProps {
 const drawerWidth = 240
 const useStyles = makeStyles((theme) => {
 
-    
+
 
     return {
         page: {
@@ -25,12 +25,15 @@ const useStyles = makeStyles((theme) => {
         drawerPaper: {
             width: drawerWidth,
             background: '#00227b',
+            padding: theme.spacing(1),
         },
         root: {
             display: 'flex'
         },
         active: {
             background: '#f4f4f4',
+            borderRadius: "10px",
+            boxShadow: "4"
 
         },
         title: {
@@ -46,6 +49,9 @@ const useStyles = makeStyles((theme) => {
         avatar: {
             marginLeft: theme.spacing(2)
         },
+        tiles: {
+            padding: theme.spacing(2)
+        }
 
     }
 
@@ -120,7 +126,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 className={classes.drawer}
                 variant='permanent'
                 anchor="left"
-                elevation={2}
+                elevation={3}
                 classes={{ paper: classes.drawerPaper }}
 
             >

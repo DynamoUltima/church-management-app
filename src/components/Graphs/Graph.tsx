@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import { blue, green, yellow } from '@material-ui/core/colors';
-import { IChartOptions } from 'chartist';
 import ChartistGraph from 'react-chartist';
 import { grayColor, whiteColor } from '../color';
 import {
@@ -96,21 +95,6 @@ const AttendanceGraph: React.FC<AttendanceGraphProps> = () => {
 
     const classes = useStyles();
 
-    // let graphOptions :IChartOptions;
-    // graphOptions = emailsSubscriptionChart.options;
-    var options = {
-        high: 10,
-        low: -10,
-        axisX: {
-            labelInterpolationFnc: function (value: any, index: number) {
-                return index % 2 === 0 ? value : null;
-            }
-        }
-    };
-
-
-
-    //when working with react chartist paste the cdn in the html file
     return (
         <>
             <Card className={classes.consistentCard}>
@@ -119,7 +103,7 @@ const AttendanceGraph: React.FC<AttendanceGraphProps> = () => {
                     className="ct-chart"
                     data={emailsSubscriptionChart.data}
                     type="Bar"
-                    // options={options}
+                    options={emailsSubscriptionChart.options} 
                     responsiveOptions={emailsSubscriptionChart.responsiveOptions}
                     listener={emailsSubscriptionChart.animation}
                 />

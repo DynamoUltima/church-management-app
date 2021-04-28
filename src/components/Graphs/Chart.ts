@@ -1,5 +1,5 @@
 // var Chartist = require("chartist");
-import  Chartist from "chartist";
+import  Chartist, { IBarChartOptions} from "chartist";
 
 // ##############################
 // // // variables used to create animation on charts
@@ -67,6 +67,21 @@ const dailySalesChart = {
 // // // Email Subscriptions
 // #############################
 
+let emailOptions:IBarChartOptions;
+emailOptions ={
+  axisX: {
+    showGrid: false
+  },
+  low: 0,
+  high: 1000,
+  chartPadding: {
+    top: 15,
+    right: 5,
+    bottom: 0,
+    left: 0
+  }
+}
+
 const emailsSubscriptionChart = {
   data: {
     labels: [
@@ -85,19 +100,7 @@ const emailsSubscriptionChart = {
     ],
     series: [[542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]]
   },
-  options: {
-    axisX: {
-      showGrid: false
-    },
-    low: 0,
-    high: 1000,
-    chartPadding: {
-      top: 0,
-      right: 5,
-      bottom: 0,
-      left: 0
-    }
-  },
+  options:emailOptions,
   responsiveOptions: [
     [
       "screen and (max-width: 640px)",
