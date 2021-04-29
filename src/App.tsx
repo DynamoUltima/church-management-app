@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import Layout from './components/Layout';
 import Dashboard from './pages/dashboard';
+import EditMember from './pages/editMember';
 import Members from './pages/members';
 
 const theme = createMuiTheme({
@@ -34,6 +35,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Dashboard} />
             <Route path="/members" component={Members} />
+            {/* <Route path="/edit-member" component={EditMember} /> */}
           </Switch>
         </Layout>
       </Router>

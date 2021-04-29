@@ -1,8 +1,8 @@
 import { Button, makeStyles } from '@material-ui/core';
 import MaterialTable, { MTableToolbar } from 'material-table';
 import tableIcons from './tableIcons';
-import { successColor } from '../color';
 import { Add } from '@material-ui/icons';
+import { useHistory, useLocation } from 'react-router';
 
 const useStyles = makeStyles((theme) => {
 
@@ -12,6 +12,9 @@ const useStyles = makeStyles((theme) => {
         },
         push:{
             flexGrow:1
+        },
+        align:{
+          display:"flex"
         }
     }
 })
@@ -23,6 +26,10 @@ export interface MemberDataTableProps {
 const MemberDataTable: React.FC<MemberDataTableProps> = () => {
 
     const classes = useStyles();
+    const location= useLocation();
+    const history= useHistory();
+
+
     return (
         <div>
             <MaterialTable
@@ -52,15 +59,21 @@ const MemberDataTable: React.FC<MemberDataTableProps> = () => {
                             <MTableToolbar {...props} />
                             <div style={{ padding: '5px 10px' }}>
 
+                                <div className={classes.align}>
                                 <div className={classes.push}></div>
                                 <Button
                                     variant="contained"
                                     color="secondary"
                                     className={classes.button}
                                     startIcon={<Add />}
+                                    onClick={() => { history.push('/edit-member') }}
                                 >
                                     ADD MEMBER
                                </Button>
+
+                                </div>
+
+                                
 
                             </div>
                         </div> 

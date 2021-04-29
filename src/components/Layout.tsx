@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import { useHistory, useLocation } from 'react-router';
 import { AddCircleOutlined, SubjectOutlined } from '@material-ui/icons';
+import EditMember from '../pages/editMember';
 
 export interface LayoutProps {
     children: any
@@ -82,7 +83,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {
             text: 'Members',
             icon: <AddCircleOutlined />,
-            path: '/members'
+            path: '/members',
+            routes: [
+                {
+                  path: "/members/edit-member",
+                  component: EditMember
+                },
+                
+              ]
         },
     ];
 
@@ -148,7 +156,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                 onClick={() => {
                                     history.push(item.path);
                                 }}
-                                className={`${location.pathname === item.path ? classes.active : null}`}
+                                className={`${location.pathname === item.path  ? classes.active : null}`}
 
                             >
                                 <ListItemIcon>{item.icon}</ListItemIcon>

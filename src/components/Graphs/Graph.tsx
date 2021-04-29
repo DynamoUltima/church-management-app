@@ -4,9 +4,9 @@ import { blue, green, yellow } from '@material-ui/core/colors';
 import ChartistGraph from 'react-chartist';
 import { grayColor, whiteColor } from '../color';
 import {
-    dailySalesChart,
+    // dailySalesChart,
     emailsSubscriptionChart,
-    completedTasksChart
+    // completedTasksChart
 } from "../Graphs/Chart"
 
 const useStyles = makeStyles((theme) => {
