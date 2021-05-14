@@ -1,14 +1,16 @@
+import { Container } from "@material-ui/core";
+import {AttendanceTable} from "../components/DataGrid/dataGrid"
 
 
 export interface AttendanceProps {
     
 }
  
-const Attendance: React.SFC<AttendanceProps> = () => {
+const Attendance: React.FC<AttendanceProps> = () => {
     return ( 
-    <div>
-        
-    </div>
+    <Container>
+       <AttendanceTable /> 
+    </Container>
      );
 }
  

@@ -1,5 +1,5 @@
 import { Container, makeStyles } from "@material-ui/core";
-import MemberDataTable from "../components/DataGrid/dataGrid";
+import {MemberDataTable} from "../components/DataGrid/dataGrid";
 
 const useStyles = makeStyles({
   btn: {
@@ -23,7 +23,7 @@ export interface MembersProps {
 
 
 const Members: React.FC<MembersProps> = () => {
-  const classes = useStyles();
+ 
   return (
     <Container>
       <MemberDataTable />

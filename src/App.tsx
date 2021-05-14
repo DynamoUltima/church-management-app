@@ -2,6 +2,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import Layout from './components/Layout';
+import Attendance from './pages/attendance';
 import Dashboard from './pages/dashboard';
 import EditMember from './pages/editMember';
 import Members from './pages/members';
@@ -34,8 +35,9 @@ function App() {
         <Layout>
           <Switch>
             <Route exact path="/" component={Dashboard} />
-            <Route path="/members" component={Members} />
-            {/* <Route path="/edit-member" component={EditMember} /> */}
+            <Route exact path="/members" component={Members} />
+            <Route exact path="/attendance" component={Attendance} />
+            <Route path="/members/edit-member" component={EditMember} />
           </Switch>
         </Layout>
       </Router>

@@ -2,7 +2,7 @@ import { Button, makeStyles } from '@material-ui/core';
 import MaterialTable, { MTableToolbar } from 'material-table';
 import tableIcons from './tableIcons';
 import { Add } from '@material-ui/icons';
-import { useHistory, useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => {
 
@@ -10,24 +10,23 @@ const useStyles = makeStyles((theme) => {
         button: {
             margin: theme.spacing(1),
         },
-        push:{
-            flexGrow:1
+        push: {
+            flexGrow: 1
         },
-        align:{
-          display:"flex"
+        align: {
+            display: "flex"
         }
     }
 })
 
 export interface MemberDataTableProps {
-
+    routes?: any
 }
 
 const MemberDataTable: React.FC<MemberDataTableProps> = () => {
 
     const classes = useStyles();
-    const location= useLocation();
-    const history= useHistory();
+
 
 
     return (
@@ -60,23 +59,27 @@ const MemberDataTable: React.FC<MemberDataTableProps> = () => {
                             <div style={{ padding: '5px 10px' }}>
 
                                 <div className={classes.align}>
-                                <div className={classes.push}></div>
-                                <Button
-                                    variant="contained"
-                                    color="secondary"
-                                    className={classes.button}
-                                    startIcon={<Add />}
-                                    onClick={() => { history.push('/edit-member') }}
-                                >
-                                    ADD MEMBER
+                                    <div className={classes.push}></div>
+                                    <Link to="/members/edit-member">
+                                        <Button
+                                            variant="contained"
+                                            color="secondary"
+                                            className={classes.button}
+                                            startIcon={<Add />}
+                                        // onClick={() => { history.push('/members/edit-member') }}
+                                        >
+                                            ADD MEMBER
                                </Button>
+                                    </Link>
+
+
 
                                 </div>
 
-                                
+
 
                             </div>
-                        </div> 
+                        </div>
                     )
                 }}
             />
@@ -84,4 +87,70 @@ const MemberDataTable: React.FC<MemberDataTableProps> = () => {
     );
 }
 
-export default MemberDataTable;
+export interface AttendanceTableProps {
+
+}
+
+const AttendanceTable: React.FC<AttendanceTableProps> = () => {
+    const classes = useStyles();
+    return (
+        <div>
+            <MaterialTable
+                icons={tableIcons}
+                title="Attendance"
+                columns={[
+                    { title: 'Name of Service', field: 'name' },
+                    { title: 'Service Type', field: 'surname' },
+                    { title: 'Date', field: 'date', type: 'numeric' },
+                    { title: 'Present', field: 'attendance',  },
+                    { title: 'Absent', field: 'attendance', }
+                ]}
+                data={[
+                    { name: 'Sunday Service', surname: 'Sunday', date: 1987, attendance: 63 }, 
+                    { name: 'Wednesday Service', surname: 'Mid-week', date: 2017, attendance: 34 }, 
+                ]}
+                options={{
+                    exportButton: true,
+                    search: true
+                }}
+                components={{
+                    Toolbar: props => (
+                        <div style={{ backgroundColor: '#e8eaf5' }}>
+                            <MTableToolbar {...props} />
+                            <div style={{ padding: '5px 10px' }}>
+
+                                <div className={classes.align}>
+                                    <div className={classes.push}></div>
+                                    {/* <Link to="/members/edit-member">
+                                <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    className={classes.button}
+                                    startIcon={<Add />}
+                                    // onClick={() => { history.push('/members/edit-member') }}
+                                >
+                                    ADD MEMBER
+                               </Button>
+                               </Link> */}
+
+
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    )
+                }}
+            />
+
+        </div>
+    );
+}
+
+
+
+
+
+export { MemberDataTable, AttendanceTable };

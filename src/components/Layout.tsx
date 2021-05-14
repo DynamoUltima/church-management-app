@@ -2,7 +2,7 @@ import { AppBar, Avatar, List, ListItem, ListItemIcon, ListItemText, makeStyles,
 import React, { useEffect, useState } from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import { useHistory, useLocation } from 'react-router';
-import { AddCircleOutlined, SubjectOutlined } from '@material-ui/icons';
+import { AddCircleOutlined,  CalendarTodayOutlined, SubjectOutlined } from '@material-ui/icons';
 import EditMember from '../pages/editMember';
 
 export interface LayoutProps {
@@ -92,6 +92,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 
               ]
         },
+        {
+            text: 'Attendance',
+            icon: <CalendarTodayOutlined />,
+            path: '/attendance'
+        }
     ];
 
 
@@ -103,6 +108,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 console.log(menu.text)
                 setPageTitle(menu.text)
             }
+            console.log(location ,'location')
 
         })
     })
@@ -148,6 +154,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <List>
 
                     {menuItems.map(function (item) {
+                        
+                        item.routes?.forEach(item=>item.path);
+                        let parentPath = item.path.split("/")
+                        let currentPath = location.pathname.split("/")
 
                         return (
                             <ListItem
@@ -155,14 +165,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                 key={item.text}
                                 onClick={() => {
                                     history.push(item.path);
+                                    
                                 }}
-                                className={`${location.pathname === item.path  ? classes.active : null}`}
+                                className={`${parentPath[1] === currentPath[1]  ? classes.active : null}`} 
 
                             >
                                 <ListItemIcon>{item.icon}</ListItemIcon>
                                 <ListItemText primary={item.text} color="#ffffff" />
 
-                            </ListItem>
+                            </ListItem> 
                         )
                     })}
                 </List>
