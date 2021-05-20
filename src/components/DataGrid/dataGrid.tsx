@@ -133,12 +133,7 @@ const AttendanceTable: React.FC<AttendanceTableProps> = () => {
                                </Button>
                                </Link> */}
 
-
-
                                 </div>
-
-
-
                             </div>
                         </div>
                     )
