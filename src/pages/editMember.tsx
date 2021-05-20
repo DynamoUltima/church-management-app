@@ -1,9 +1,9 @@
-import { FormControl, FormControlLabel, FormLabel, InputLabel, makeStyles, MenuItem, Paper, Radio, RadioGroup, Select, TextField, Typography } from "@material-ui/core";
+import { Checkbox, FormControl, FormControlLabel, FormLabel, InputLabel, makeStyles, MenuItem, Paper, Radio, RadioGroup, Select, TextField, Typography } from "@material-ui/core";
 import GridContainer from "../components/Grid/GridContainer";
 import GridItem from "../components/Grid/GridItem";
 
 import { PersonAdd } from "@material-ui/icons";
-import {  useState } from "react";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => {
 
@@ -12,7 +12,13 @@ const useStyles = makeStyles((theme) => {
             '& .MuiFormControl-root': {
                 width: '80%',
                 margin: theme.spacing(1)
-            }
+            },
+
+
+        },
+        dropdown: {
+            width: '80%',
+            margin: theme.spacing(1)
         },
         control: {
             paddingInline: theme.spacing(2)
@@ -46,7 +52,8 @@ const EditMember: React.FC<EditMemberProps> = () => {
         mobile: '',
         city: '',
         gender: 'male',
-        departmentId: ""
+        departmentId: "",
+        isPermanent: false
     }
 
     const [values, setValues] = useState(initialValues);
@@ -107,7 +114,7 @@ const EditMember: React.FC<EditMemberProps> = () => {
                         </form>
                     </GridItem>
                     <GridItem xs={6}>
-                        <FormControl>
+                        <FormControl className={classes.dropdown}>
                             <FormLabel>Gender</FormLabel>
                             <RadioGroup row
                                 name="gender"
@@ -117,20 +124,30 @@ const EditMember: React.FC<EditMemberProps> = () => {
                                 <FormControlLabel value="male" control={<Radio />} label="male" />
                                 <FormControlLabel value="female" control={<Radio />} label="female" />
                             </RadioGroup>
-                            <FormControl>
-                                <FormLabel>Department</FormLabel>
+                            <FormControl
+                                variant="outlined">
+                                <InputLabel>Department</InputLabel>
                                 <Select
-                                    variant="outlined"
+                                    label="Department"
                                     name="departmentId"
                                     value={values.departmentId}
                                     onChange={handleInputs}
                                 >
                                     <MenuItem value="">None</MenuItem>
                                     {departments.map(
-                                        item=> (<MenuItem key={item.id} value={item.id}>{item.title} </MenuItem>)
+                                        item => (<MenuItem key={item.id} value={item.id}>{item.title} </MenuItem>)
                                     )}
                                 </Select>
                             </FormControl>
+                            <FormControlLabel
+                                control={<Checkbox
+                                    name="isPermanent"
+                                    color="primary"
+                                    value={values.isPermanent}
+                                    onChange={handleInputs}
+                                />}
+                                label="Permanent worker"
+                            ></FormControlLabel>
                         </FormControl>
 
                     </GridItem>
@@ -139,6 +156,6 @@ const EditMember: React.FC<EditMemberProps> = () => {
 
         </div>
     );
-} 
+}
 
 export default EditMember;

@@ -10,10 +10,10 @@ import Members from './pages/members';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#fefefe'
+      main: '#6d6d6d'
     },
     secondary: {
-      main: '#ffffff'
+      main: '#6c52fa'
     }
   },
   typography: {

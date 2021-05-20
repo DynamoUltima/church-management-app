@@ -215,7 +215,7 @@ const AttendanceCard: React.FC<AttendanceCardProps> = () => {
                             aria-haspopup="true"
                             onClick={handleClick}
                         >
-                            <MoreVertIcon color='secondary' />
+                            <MoreVertIcon color='disabled' />
                         </IconButton>
                         <Menu
                             id="long-menu"

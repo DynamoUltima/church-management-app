@@ -122,6 +122,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* app bar */}
             <AppBar className={classes.appbar}
                 elevation={1}
+                color='default' 
             >
                 <Toolbar>
                     <Typography className={classes.date}>
